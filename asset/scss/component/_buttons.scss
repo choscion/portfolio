@@ -1,0 +1,14 @@
+.mouse{
+    position: fixed;
+    // left: 0;top: 0;
+    z-index: 33;
+    width: 6vw;height: 6vw;
+    line-height: 6vw;
+    text-align: center;
+    background: rgba(0, 0, 0, .15);
+    color: #fff;
+    backdrop-filter: blur(20px);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; //
+}

@@ -1,0 +1,105 @@
+.blind{
+    position: absolute;   
+    width: 1px;height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+video{width: 100%;height: 100%;}
+
+.bold{font-weight: 500;color: #0d0e13;}
+
+.underline{
+    position: relative;
+    display: inline-block;
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;bottom: 0;
+        display: inline-block;
+        width: 100%;height: 1px;
+        background-color: #fff;
+        transform-origin: 100% 50%; //right
+        transform: scale(0, 1); //x크기 0
+        transition: transform .3s ease-in-out;
+    }
+    &:hover{
+        &::before{
+            transform-origin: 0 50%; //left
+            transform: scale(1, 1); //x크기 1
+        }
+    }
+}
+
+.hover-control{
+    position: relative;
+    line-height: 1.5;
+    transition: .3s ease-in-out;
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;bottom: 0;
+        display: inline-block;
+        width: 100%;height: 1px;
+        background-color: #fff;
+        transform-origin: 100% 50%; //right
+        transform: scale(1, 1); //x크기 0
+        transition: transform .3s ease-in-out;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        left: -15px;top: 50%;
+        width: 3px;height: 3px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        transform-origin: 50% 50%;
+        transition: .3s ease-in-out;
+    }
+    .right-arr{
+        position: absolute;
+        z-index: 11;
+        left: -22%;top: 50%;
+        opacity: 0;
+        transform: translate(-200%, -50%);
+        display: inline-block;
+        width: 14px;height: 14px;
+        transition: .3s .3s ease-in-out;
+        background: url(/asset/images/icon/right-arrow.png)no-repeat center/cover;
+    }
+    &:hover{
+        transform: translateX(10%);
+        &::before{
+            transform: scale(0, 1);
+        }
+        &::after{
+            top: -3px;left: -40px;
+            width: 30px;height: 30px;
+            background: #fff;
+            overflow: hidden;
+        }
+        .right-arr{
+            opacity: 1;
+            transform: translate(0, -50%);
+        }
+    }
+}
+
+.icon{
+    width: 0.8vw;height: 0.8vw;
+}
+
+.title{
+    font-weight: 400;
+    font-size: 10vw;
+    line-height: 10vw;
+    letter-spacing: -.34vw;
+}
