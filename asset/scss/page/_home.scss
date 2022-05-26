@@ -140,6 +140,65 @@ main{
             }
         }
     }
+    @include mobile{
+        height: 100vh;
+        .bg-area{
+            .img-bg{
+                img{
+                    height: 120%;
+                }
+                .particle{
+                    &-01{
+                        width: 40vw;
+                        left: 50vw;top: 4vh;
+                    }
+                    &-02{
+                        z-index: 2;
+                        width: 60vw;
+                        left: -6vw;top: 30vh;
+                    }
+                    &-03{
+                        z-index: 1;
+                        width: 32vw;
+                        right: 1vw;bottom: -1vh;
+                    }
+     
+                }
+            }
+        }
+        .visual-inner{
+            padding: 30vh 0 0;
+        }
+        .etc-msg{
+            display: none;
+        }
+        .intro-msg, .main-msg{
+            font-size: 14px;
+            line-height: 22px;
+            .mask-txt{
+                transform: translateY(-100%) rotate(-10deg);
+            }
+        }
+        .intro-msg{
+            font-style: italic;
+        }
+        .title{
+            font-size: 15vw;
+            .mask-txt{
+                transform: translateY(-100%) rotate(-10deg);
+            }
+        }
+        .main-msg{
+            width: 100%;
+        }
+        .etc-area{
+            margin-top: 10vw;
+            font-size: 14px;
+            .account-wrap{
+                display: none;
+            }
+        }
+    }
 }
 
 .sc-work{
@@ -345,6 +404,167 @@ main{
         }
         
     }
+    @include mobile{
+        // height: 100vh;
+        .work-inner{
+            padding: 30vw 8vw;
+        }
+        .title{
+            line-height: 15.6vw;
+            margin-bottom: 4vw;
+        }
+        .text-wrap{
+            position: relative;
+            .badge{
+                position: relative;
+                left: 0;top: -30vw;
+                font-size: 4vw;
+            }
+            .main-msg{
+                width: 100%;
+                font-size: 4.1vw;
+                line-height: 6.4vw;
+            }
+        }
+        .image-wrap{
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            &.reverse{
+                flex-direction: column;
+                margin-top: 0;
+            }
+        }
+        .imgbox-list{
+            margin: 10vw 0;
+            .image{
+                height: 63vw;
+                .link-work{
+                    overflow: auto;
+                }
+                .roundbox-wrap{
+                    right: 3vw;bottom: -30vw;
+                }
+                .roundbox{
+                    padding: 3vw 4vw;
+                    font-size: 3vw;
+                    background-color: #0d0e13;
+                    color: #fff;
+                    opacity: 1;
+                    &.link-notion{
+                        margin-left: 3vw;
+                    }
+                }
+                img{
+                    width: 100%;height: 100%;
+                    filter: blur(0);
+                    transform: scale(1) rotate(0deg);
+                    opacity: 1;
+                }
+            }
+            .imgbox-item{
+                &:hover{
+                    .image{
+                        .link-work{
+                            background-color: #fff;
+                        }
+                        .roundbox{
+                            opacity: 1;
+                        }
+                        img{
+                            filter: blur(0);
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            .caption{
+                margin-top: 2vw;
+                .cap-msg{
+                    font-size: 3.7vw;
+                    line-height: 5.6vw;
+                    transform: translate(0, 0) rotate(0);
+                    opacity: 1;
+                    .badge{
+                        display: inline-block;
+                        margin-bottom: 1.2vw;
+                        margin-right: 2vw;
+                    }
+                }
+            }
+            &.imgbox01{
+                width: 100%;
+                .imgbox-item{
+                    margin-top: 0;
+                }
+            }
+            &.imgbox02{
+                width: 100%;
+                .imgbox-item{
+                    margin-top: 0;
+                }
+            }
+            &.imgbox03{
+                width: 100%;
+                .image{
+                    .roundbox-wrap{
+                        bottom: -25vw;
+                    }
+                    .roundbox{
+                        background-color: #0d0e13;
+                        color: #fff;
+                    }
+                }
+                .imgbox-item{
+                    margin-right: 0vw;
+                }
+            }
+            &.imgbox04{
+                width: 100%;
+                .imgbox-item{
+                    margin-top: 0;
+                }
+                .image{
+                    .roundbox{
+                        padding: 3vw 4vw;
+                        font-size: 3vw;
+                        background-color: #0d0e13;
+                        color: #fff;
+                        opacity: 1;
+                        &.link-work-small{
+                            margin-right: 2.5vw;
+                        }
+                    }
+                }
+            }
+            &.imgbox05{
+                width: 100%;
+                .imgbox-item{
+                    margin-top: 0;
+                }
+            }
+            &.imgbox06{
+                width: 100%;
+                .imgbox-item{
+                    margin-right: 0vw;
+                    margin-top: 0;
+                    height: auto;
+                    .image{
+                        height: 63vw;
+                    }
+                }
+            }
+            &.imgbox07{
+                width: 100%;
+                margin: 10vw auto;
+            }
+        }
+        &::after{
+            content: '';
+            display: block;clear: both;
+        }
+    }
     .hover-control{
         // position: relative;
         left: 50vw;top: 3vw;
@@ -371,7 +591,6 @@ main{
     color: #fff;
     width: 100%;height: 100vh;
     box-sizing: border-box;
-    // overflow: hidden;
     .content-area{
         // position: relative;
         display: flex;flex-direction: column;
@@ -411,6 +630,32 @@ main{
         font-size: 0.97vw;
         line-height: 1.45vw;
         text-align: center;
+    }
+    @include mobile{
+        height: 100vh;
+        .content-area{
+            padding: 20vw 0;
+            .bg-area{
+                video{
+                    object-fit: cover;
+                }
+            }
+        }
+        .badge{
+            height: auto;
+            font-size: 4vw;
+            line-height: 6vw;
+            margin-bottom:0vw;
+        }
+        .title{
+            margin-top: -5vw;
+            font-size: 15vw;
+        }
+        .strength-msg{
+            width: 85vw;
+            font-size: 4vw;
+            line-height: 10vw;
+        }
     }
 }   
 
@@ -490,6 +735,53 @@ main{
                 border: 1px solid #0d0e13;
                 background: #0d0e13;
             }
+        }
+    }
+    @include mobile{
+        // height: 100vh;
+        padding-top: 30vw;
+        .image-area{
+            .imagebox{
+                &.imgbox01{
+                    width: 35vw;height: 63vw;
+                }
+                &.imgbox02{
+                    top: 10vw;left: 8vw;
+                    width: 32vw;height: 32vw;
+                }
+                &.imgbox03{
+                    top: 5vw;right: 14vw;
+                    width: 26vw;height: 34vw;
+                }
+                &.imgbox04{
+                    top: 50vw;left: 13vw;
+                    width: 32vw;height: 22vw;
+                }
+                &.imgbox05{
+                    top: 48vw;right: 5vw;
+                    width: 40vw;height: 40vw;
+                }
+            }
+        }
+        .content-area{
+            padding: 40vw 0 15vw;
+            .badge{
+                height: auto;
+                font-size: 4vw;
+                line-height: 6vw;
+                margin-bottom: 5vw;
+            }
+        }
+        .title{
+            margin: 3.4vw 0 6vw;
+            font-size: 15vw;
+            line-height: 17vw;
+        }
+        .power-msg{
+            width: 80vw;
+            margin: 0 auto 3.4vw;
+            font-size: 4vw;
+            line-height: 10vw;
         }
     }
 }

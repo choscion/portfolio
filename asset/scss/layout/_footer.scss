@@ -11,6 +11,10 @@ footer{
         transform: translate(0, -30%);
         width: 100%;height: 100%;
     }
+    @include mobile{
+        padding: 10vw 8vw;
+        overflow: hidden;
+    }
 }
 .sc-story{
     position: relative;
@@ -34,6 +38,26 @@ footer{
         font-size: 1.6vw;
         line-height: 2.22vw;
         width: 26vw;
+    }
+    @include mobile{
+        padding-bottom: 20vw;
+        margin-bottom: 10vw;
+        .bg-area{
+            position: absolute;
+            right: -10vw;top: -3vw;
+            z-index: -222;
+            width: 70vw;height: 30vw;
+        }
+        .title{
+            font-size: 15vw;
+            line-height: 17vw;
+            margin-bottom: 7vw;
+        }
+        .story-msg{
+            font-size: 4vw;
+            line-height: 6vw;
+            width: 67vw;
+        }
     }
 }
 .ft-etc-area{
@@ -69,5 +93,37 @@ footer{
                 background: #e0ccbb;
             }
         }
+    }
+    @include mobile{
+        .sub-menu-list{
+            display: flex;flex-direction: column;
+            width: 35vw;
+            font-size: 4vw;
+            line-height: 8vw;
+            margin-right: 5vw;
+        }
+        .sns-list{
+            display: flex;flex-direction: column;
+            width: 40vw;
+            font-size: 4vw;
+            line-height: 8vw;
+            margin-right: 5vw;
+        }
+        .hover-control{
+            position: absolute;
+            left: 0;top: 65vw;
+            font-size: 4vw;
+            line-height: 6vw;
+            &::after{
+                content: '';
+                width: 3px;height: 3px;
+                left: -11px;
+            }
+            &:hover{
+                &::after{
+                    background: none;
+                }
+            }
+        }  
     }
 }

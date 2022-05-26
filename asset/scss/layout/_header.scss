@@ -57,6 +57,9 @@ header{
             }
         }
     }
+    @include mobile{
+        display: none;
+    }
 }
 
 .active-header{
@@ -84,6 +87,7 @@ header{
             }
         }
     }
+    
     .btn-top{
         display: block;
         width: 200px;height: 100%;
@@ -141,6 +145,7 @@ header{
             }
         }
         &.menu-close{
+            visibility: hidden;
             z-index: 1;
             opacity: 0;
             .txt{
@@ -170,7 +175,6 @@ header{
         left: 0;top: 0;
         width: 100vw;height: 0;
         background-color: #0d0e13;
-        overflow-x: hidden;
         visibility: hidden;
         transition: .6s ease-in-out;
         .menu-inner{
@@ -272,5 +276,61 @@ header{
         position: absolute;
         right: 5vw;bottom: 5vw;
         font-size: 17px;
+    }
+    @include mobile{
+        visibility: visible;
+        opacity: 1;
+        height: 20px;
+        .btn-top{
+            position: relative;
+            z-index: 22;
+            display: block;
+            width: 200px;height: 100%;
+            font-size: 17px;
+            line-height: 20px;
+        }
+        .btn-menu{
+            width: 100%;height: 100%;
+            .btn-ic{
+                margin-top: 1px;
+                margin-left: 11px;
+            }
+            &:hover{
+                .hamburger{
+                        transform: rotate(0deg);
+                }
+            }
+        }
+        .menu-box{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11vw 15vw;
+            .image-wrap{
+                display: none;
+            }
+            .menu-content{
+                display: flex;flex-direction: column;
+                width: 100%;
+                margin-right: 0;
+                .menu-list{
+                    margin-bottom: 26vw;
+                }
+                .menu-item{
+                    font-size: 16vw;
+                    line-height: 20vw;
+                    .underline{
+                        &::before{content: none;}
+                    }
+                }
+                .sns-item{display: none;}
+            }
+        }
+        .link-goto{
+            position: relative;
+            right: 0;bottom:20vh;
+            left: 20vw;
+            font-size: 14px;
+        }
     }
 }
