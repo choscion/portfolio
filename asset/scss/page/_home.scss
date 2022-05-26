@@ -28,10 +28,29 @@ main{
             }
             .particle{
                 position: absolute;
-                &-01{left: 10%;top: 2%;}
-                &-02{right: 0;top: 0;}
-                &-03{left: 0;top: 0;}
-                &-04{left: 0;top: 0;}
+                width: 50%;
+                &-01{
+                    width: 26vw;
+                    left: 13vw;top: 4vw;
+                    transform: rotate(0deg);
+                    transform-origin: center;
+                }
+                &-02{
+                    width: 39vw;
+                    left: 1vw;top: 47vw;
+                }
+                &-03{
+                    width: 29vw;
+                    right: 17vw;bottom: 20vw;
+                    filter: blur(2px);
+                    transform-origin: center;
+                    transform: scale(.8, .8);
+                }
+                &-04{
+                    width: 35vw;
+                    left: 0;bottom: 0;
+                    opacity: 0.4;
+                }
  
             }
         }
@@ -95,11 +114,6 @@ main{
         margin-top: 2vw;
         font-size: 1.11vw;
         line-height: 1.6vw;
-        .hover-control{
-            .right-arr{
-                left: -42%;top: 55%;
-            }
-        }
         .account-wrap{
             width: 12vw;
             line-height: 2.2vw;
@@ -159,8 +173,8 @@ main{
             margin-bottom: 2.7vw;
         }
         .main-msg{
-            width: 26vw;
-            font-size: 1.6vw;
+            width: 27vw;
+            font-size: 1.3vw;
             line-height: 2.2vw;
         }
     }
@@ -175,19 +189,49 @@ main{
     }
     .imgbox-list{
         .image{
-            width: 100%;overflow: hidden;
-            background-color: #000;
-            img{
+            position: relative;
+            .link-work{
+                overflow: hidden;
+                background-color: #000;
+                transition: .5s ease-in-out;
+                display: block;
+                width: 100%;height: 100%;
+            }
+            .roundbox-wrap{
+                position: absolute;
+                right: 2vw;bottom: 2vh;
+                display: flex;
+            }
+            .roundbox{
                 display: inline-block;
-                transform: scale(1.08) rotate(-3deg);
+                padding: .3vw .6vw;
+                font-size: .95vw;
+                background-color: #fff;
+                border-radius: 5vw;
+                opacity: 0;
+                transition: .5s ease-in-out;
+                &.link-notion{
+                    margin-left: 2vw;
+                }
+            }
+            img{
+                width: 100%;height: 101%;
+                display: inline-block;
+                filter: blur(1px);
+                transform: scale(1.08) rotate(0deg);
                 transition: .5s ease-in-out;
                 opacity: 0.4;
             }
         }
         .imgbox-item{
-            display: block;
             &:hover{
                 .image{
+                    .link-work{
+                        background-color: #fff;
+                    }
+                    .roundbox{
+                        opacity: 1;
+                    }
                     img{
                         filter: blur(0);
                         transform: scale(1);
@@ -204,6 +248,7 @@ main{
             }
         }
         .caption{
+            display: block;
             overflow: hidden;
             margin-top: 0.9vw;
             .cap-msg{
@@ -236,21 +281,50 @@ main{
             }
         }
         &.imgbox03{
-            width: 48vw;
+            width: 46vw;
+            .image{
+                .roundbox{
+                    background-color: #0d0e13;
+                    color: #fff;
+                }
+            }
             .imgbox-item{
                 margin-right: 13vw;
             }
         }
         &.imgbox04{
-            width: 20vw;
+            width: 21vw;
             margin-right: auto;
             .imgbox-item{
                 margin-top: 12vw;
+            }
+            .image{
+                .roundbox{
+                    display: inline-block;
+                    padding: .3vw .6vw;
+                    font-size: .95vw;
+                    background-color: #fff;
+                    border-radius: 5vw;
+                    opacity: 0;
+                    transition: .5s ease-in-out;
+                    &.link-notion{
+                        margin-left: 0;
+                    }
+                    &.link-work-small{
+                        margin-right: 1vw;
+                    }
+                }
             }
         }
         &.imgbox05{
             width: 25vw;
             margin-right: auto;
+            .image{
+                .roundbox{
+                    background-color: #0d0e13;
+                    color: #fff;
+                }
+            }
             .imgbox-item{
                 margin-top: 15vw;
             }
@@ -259,10 +333,14 @@ main{
             width: 30vw;
             .imgbox-item{
                 margin-right: 5vw;
+                height: 55vh;
+                .image{
+                    height: 100%;
+                }
             }
         }
         &.imgbox07{
-            width: 30vw;
+            width: 20vw;
             margin: 4vw auto 0 30vw;
         }
         
@@ -275,7 +353,7 @@ main{
         }
         .right-arr{
             left: -27%;top: 65%;
-            background: url(/asset/images/icon/white-arrow.png) no-repeat center/100%;
+            background: url(../images/icon/white-arrow.png) no-repeat center/100%;
         }
         &:hover{
             left: 51vw;
@@ -287,9 +365,8 @@ main{
     }
 }
     
-.sc-reel{
+.sc-strength{
     position: relative;
-    z-index: 999999999999;
     background-color: #0d0e13;
     color: #fff;
     width: 100%;height: 100vh;
@@ -307,6 +384,7 @@ main{
         .bg-area{
             position: absolute;
             left: 0;top: 0;
+            z-index: -1;
             width: 100vw;height: 100vh;
             opacity: 0.3;
             overflow: hidden;
@@ -328,7 +406,7 @@ main{
         .left{transform: translateX(-200%);display: inline-block;}
         .right{transform: translateX(200%);display: inline-block;}
     }
-    .reel-msg{
+    .strength-msg{
         width: 22vw;
         font-size: 0.97vw;
         line-height: 1.45vw;
@@ -336,7 +414,7 @@ main{
     }
 }   
 
-.sc-news{
+.sc-power{
     position: relative;
     z-index: 22;
     background-color: #fff;
@@ -348,24 +426,24 @@ main{
             position: absolute;
             &.imgbox01{
                 position: relative;
-                width: 25vw;height: 44vw;
+                width: 26vw;height: 40vw;
                 margin: 0 auto;
             }
             &.imgbox02{
-                top: 10vw;left: 18vw;
-                width: 26vw;height: 14.8vw;
+                top: 10vw;left: 15vw;
+                width: 26vw;height: 26vw;
                 
             }
             &.imgbox03{
-                top: 7vw;right: 28vw;
-                width: 12vw;height: 17vw;
+                top: 5vw;right: 28vw;
+                width: 14vw;height: 20vw;
             }
             &.imgbox04{
                 top: 40vw;left: 15vw;
                 width: 26vw;height: 17vw;
             }
             &.imgbox05{
-                top: 40vw;right: 19vw;
+                top: 42vw;right: 19vw;
                 width: 26vw;height: 26vw;
             }
         }
@@ -383,6 +461,7 @@ main{
     }
     .title{
         margin: 3.4vw 0 2vw;
+        line-height: 13vw;
         .mask-box{overflow: hidden;}
         .mask-txt{
             display: block;
@@ -391,7 +470,7 @@ main{
             opacity: 0;
         }
     }
-    .news-msg{
+    .power-msg{
         width: 31vw;
         margin: 0 auto 3.4vw;
         font-size: 1.6vw;
@@ -403,7 +482,7 @@ main{
         }
         .right-arr{
             left: -27%;top: 65%;
-            background: url(/asset/images/icon/white-arrow.png) no-repeat center/100%;
+            background: url(../images/icon/white-arrow.png) no-repeat center/100%;
         }
         &:hover{
             margin-left: 2%;

@@ -24,12 +24,13 @@ header{
         visibility: hidden;
         opacity: 0;
     }
-    .top-logo{
-        width: 100px;height: 100%;
-        background-color: #fff;
+    .logo{
+        width: 200px;height: 100%;
         transform-origin: 0 0;
         transform: translateY(100%) rotate(10deg);
         opacity: 0;
+        font-size: 1.2vw;
+        line-height: 30px;
         a{
             display: block;height: 100%;
         }
@@ -62,15 +63,17 @@ header{
     transition: opacity visibility .5s ease-in-out;
     transition: color .01s;
     visibility: hidden;
+    transition: .5s ease-in-out;
     opacity: 0;
     color: #fff;
+    height: 30px;
     &.show{
         visibility: visible;
         opacity: 1;
     }
     &.black{
-        .active-logo{
-            background-color: #0d0e13;
+        .btn-top{
+            color: #0d0e13;
         }
         .menu-open{
             .txt{color: #0d0e13;}
@@ -81,14 +84,16 @@ header{
             }
         }
     }
-    .active-logo{
-        width: 3.4vw;height: 3.4vw;
-        background-color: #fff;
+    .btn-top{
+        display: block;
+        width: 200px;height: 100%;
         transition: .3s;
+        font-size: 1.2vw;
+        line-height: 30px;
     }
     .menu-area{
         position: relative;
-        width: 71px;height: 20px;
+        width: 90px;height: 20px;
     }
     .btn-menu{
         position: absolute;
@@ -108,6 +113,7 @@ header{
         }
         .btn-ic{
             width: 19px;height: 19px;
+            margin-top: 2px;
             margin-left: 12px;
             transition: .5s;
             overflow: hidden;
@@ -201,6 +207,8 @@ header{
                 transform: scale(1.05) rotate(5deg);
                 opacity: 0;
                 transition: .5s ease-in-out;
+                width: 100%;height: 100%;
+                img{height: 100%;}
                 &.on{
                     transform: scale(1) rotate(0);
                     opacity: 1;
@@ -260,23 +268,12 @@ header{
             }
         }
     }
-    .bottom-content{
+    .link-goto{
         position: absolute;
-        left: 0;bottom: 5vw;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 5vw;
-        box-sizing: border-box;
-        .link-reel, .link-story{
-            line-height: 1.5;
-            opacity: 0.6;
-            &:hover {
-                opacity: 1;
-            }
-        }
-        .link-work{
-            font-size: 17px;
+        right: 5vw;bottom: 5vw;
+        font-size: 17px;
+        .right-arr{
+            // left: -2vw;top: 1.7vh;
         }
     }
 }

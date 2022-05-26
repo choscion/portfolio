@@ -3,8 +3,8 @@ $(function(){
         crrt = $(this).scrollTop();
         trgt = $('.sc-visual').offset().top;
         blck1 = $('.sc-work').offset().top-90;
-        wht1 = $('.sc-reel').offset().top-90;
-        blck2 = $('.sc-news').offset().top-90;
+        wht1 = $('.sc-strength').offset().top-90;
+        blck2 = $('.sc-power').offset().top-90;
         wht2 = $('footer').offset().top-90;
 
         if (crrt > 0) {
@@ -58,9 +58,7 @@ $(function(){
         e.preventDefault();
         menuMo.play();
         $(this).siblings('.menu-wrap').addClass('on');
-        $('.page-wrapper').addClass('rotate');
         $('body').addClass('noscroll');
-        // menuMo.reverse();
 
         // $(this).toggleClass('on');
         // $(this).siblings('.menu-wrap').toggleClass('on');
@@ -69,9 +67,7 @@ $(function(){
         e.preventDefault();
         menuMo.reverse();
         $(this).siblings('.menu-wrap').removeClass('on');
-        $('.page-wrapper').removeClass('rotate');
         $('body').removeClass('noscroll');
-        // menuMo.reverse();
 
         // $(this).toggleClass('on');
         // $(this).siblings('.menu-wrap').toggleClass('on');
@@ -96,16 +92,28 @@ $(function(){
       })
       MotionFooter.to('.ft-inner',.7,{transform:'translate(0, 0)'})
 
-      scrollMoInfo = gsap.timeline({
-        scrollTrigger:{
-          trigger:'.sc-info',
-          start:'-10% top', //[트리거기준,윈도우기준]
-          // end:'75% top',
-          // markers:true,
-          },
-      })
-      scrollMoInfo.to('.bg-title .char',.3,{y:0,opacity:1,stagger:.1})
+    $('.btn-top').click(function(e){
+        e.preventDefault();
 
+        gsap.to('html,body',{
+            scrollTop: 'body',
+            duration: .3,
+        })
+    })
 
+    $('.link-goto').click(function(e){
+        e.preventDefault();
+        trgt = $(this).data('target');
+        trgtOffset = $(trgt).offset().top;
+
+        menuMo.reverse();
+        $('.menu-wrap').removeClass('on');
+        $('body').removeClass('noscroll');
+        
+        gsap.to('html,body',{
+            scrollTop: trgtOffset,
+            duration: .3,
+        })
+    })
 
 }) //Do not touch!!!
